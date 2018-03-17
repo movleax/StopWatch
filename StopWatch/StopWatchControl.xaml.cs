@@ -29,9 +29,11 @@ namespace StopWatch
         {
             InitializeComponent();
             dispatcherTimer.Tick += new EventHandler(dt_Tick);
-            dispatcherTimer.Interval = new TimeSpan(0, 0, 0, 0, 1);
-            stopWatch.Start();
-            dispatcherTimer.Start();
+            dispatcherTimer.Interval = new TimeSpan(0, 0, 0, 1);
+            stopWatch.Stop();
+            dispatcherTimer.Stop();
+
+            lblTime.Content = String.Format("{0:00}:{1:00}:{2:00}", 0, 0, 0);
         }
 
         void dt_Tick(object sender, EventArgs e)
@@ -39,19 +41,18 @@ namespace StopWatch
             if (stopWatch.IsRunning)
             {
                 TimeSpan ts = stopWatch.Elapsed;
-                currentTime = String.Format("{0:00}:{1:00}:{2:00}",
-                ts.Minutes, ts.Seconds, ts.Milliseconds / 10);
+                currentTime = String.Format("{0:00}:{1:00}:{2:00}", ts.Hours, ts.Minutes, ts.Seconds);
                 lblTime.Content = currentTime;
             }
         }
 
-        public void start()
+        public void Start()
         {
             stopWatch.Start();
             dispatcherTimer.Start();
         }
 
-        public void stop()
+        public void Stop()
         {
             stopWatch.Stop();
             dispatcherTimer.Stop();

@@ -72,6 +72,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="StopWatchChildWindow.cs" />
     <Compile Include="StopWatchControl.xaml.cs">
       <DependentUpon>StopWatchControl.xaml</DependentUpon>
     </Compile>
