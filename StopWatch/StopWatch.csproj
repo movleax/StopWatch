@@ -72,10 +72,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AddLogWindow.xaml.cs">
+      <DependentUpon>AddLogWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="StopWatchChildWindow.cs" />
     <Compile Include="StopWatchControl.xaml.cs">
       <DependentUpon>StopWatchControl.xaml</DependentUpon>
     </Compile>
+    <Page Include="AddLogWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

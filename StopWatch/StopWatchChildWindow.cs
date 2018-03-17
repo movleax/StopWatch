@@ -120,8 +120,10 @@ namespace StopWatch
 
         private void taskList_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            object foo = taskList.SelectedItem;
-            var nop = 0;
+            if (taskList.SelectedItem.ToString().Contains("Add New Log Item"))
+            {
+               
+            }
         }
 
         private void taskList_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
