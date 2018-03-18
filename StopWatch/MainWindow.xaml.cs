@@ -31,21 +31,22 @@ namespace StopWatch
 
             cntr1.Children.Add(new StopWatchChildWindow());
 
-            listBox.Items.Add(" -- Add New Log Item --");
-            listBox.Items.Add("asdfasdfasdfasdfasdfasdfasdfasdfasdfasfasdf");
-            
+            //listBox.Items.Add(" -- Add New Log Item --");
+            //listBox.Items.Add("asdfasdfasdfasdfasdfasdfasdfasdfasdfasfasdf");
+            AddLogWindow alw = new AddLogWindow();
+            alw.Show();
         }
 
-        private void listBox_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-            object foo = listBox.SelectedItem;
-            var nop = 0;
-        }
+        //private void listBox_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        //{
+        //    object foo = listBox.SelectedItem;
+        //    var nop = 0;
+        //}
 
-        private void listBox_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
-        {
-            object foo = listBox.SelectedItem;
-            var nop = 0;
-        }
+        //private void listBox_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        //{
+        //    object foo = listBox.SelectedItem;
+        //    var nop = 0;
+        //}
     }
 }

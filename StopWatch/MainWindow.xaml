@@ -9,7 +9,7 @@
         Title="MainWindow" Height="505.592" Width="960.526">
     <Grid>
         <xctk:WindowContainer Name="cntr1">
-            <xctk:ChildWindow WindowBackground="Blue"
+            <!--<xctk:ChildWindow WindowBackground="Blue"
                     Left="175"
                     Top="125"
                     Width="221"
@@ -21,7 +21,7 @@
                     <Button Name="ToggleWatchButton" Content="Start" HorizontalAlignment="Left" Margin="10,73,0,0" VerticalAlignment="Top" Width="198" Height="32"/>
                     <ListBox Name="listBox" HorizontalAlignment="Left" Height="66" Margin="10,110,0,0" VerticalAlignment="Top" Width="198" MouseDoubleClick="listBox_MouseDoubleClick" MouseLeftButtonUp="listBox_MouseLeftButtonUp"/>
                 </Grid>
-            </xctk:ChildWindow>
+            </xctk:ChildWindow>-->
 
 
         </xctk:WindowContainer>

@@ -5,16 +5,31 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:StopWatch"
         mc:Ignorable="d"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         Title="AddLog" Height="270.732" Width="300">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="88*"/>
             <ColumnDefinition Width="205*"/>
         </Grid.ColumnDefinitions>
-        <Button Content="Submit" HorizontalAlignment="Left" VerticalAlignment="Top" Width="117" Margin="10,204,0,0" Height="24" Grid.ColumnSpan="2"/>
-        <Button Content="Cancel" HorizontalAlignment="Left" VerticalAlignment="Top" Width="117" Margin="78.554,204,0,0" Height="24" Grid.Column="1"/>
-        <TextBox Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="274"/>
-        <ListBox Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="161" Margin="10,38,0,0" VerticalAlignment="Top" Width="274"/>
+        <Button Content="Submit" HorizontalAlignment="Left" VerticalAlignment="Top" Width="117" Margin="10,204,0,0" Height="24" Grid.ColumnSpan="2" Click="Submit_Click"/>
+        <Button Content="Cancel" HorizontalAlignment="Left" VerticalAlignment="Top" Width="117" Margin="78.554,204,0,0" Height="24" Grid.Column="1" Click="Cancel_Click"/>
+        <!--<TextBox Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="274"/>-->
 
+        <xctk:WatermarkTextBox Grid.ColumnSpan="2" Margin="10,0,9.6,206.8">
+            <xctk:WatermarkTextBox.Watermark>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Name="TopicField" Text="Enter Topic" Margin="0,0,0,0" FontStyle="Italic" />
+                </StackPanel>
+            </xctk:WatermarkTextBox.Watermark>
+        </xctk:WatermarkTextBox>
+
+        <xctk:WatermarkTextBox Grid.ColumnSpan="2" Margin="10,39,9.6,41.8">
+            <xctk:WatermarkTextBox.Watermark>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Name="DescriptionField" Text="Description" Margin="0,0,0,0" FontStyle="Italic" />
+                </StackPanel>
+            </xctk:WatermarkTextBox.Watermark>
+        </xctk:WatermarkTextBox>
     </Grid>
 </Window>
