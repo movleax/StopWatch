@@ -31,10 +31,16 @@ namespace StopWatch
 
             cntr1.Children.Add(new StopWatchChildWindow());
 
+            //this.IsEnabled = false;
+
+
             //listBox.Items.Add(" -- Add New Log Item --");
             //listBox.Items.Add("asdfasdfasdfasdfasdfasdfasdfasdfasdfasfasdf");
-            AddLogWindow alw = new AddLogWindow();
-            alw.Show();
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            AddLogWindow.CloseAddLogWindow();
         }
 
         //private void listBox_MouseDoubleClick(object sender, MouseButtonEventArgs e)

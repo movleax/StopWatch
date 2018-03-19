@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:StopWatch"
         mc:Ignorable="d"
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
-        Title="AddLog" Height="270.732" Width="300">
+        Title="AddLog" Height="270.732" Width="300" Closing="Window_Closing">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="88*"/>

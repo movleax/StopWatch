@@ -79,6 +79,8 @@
     <Compile Include="StopWatchControl.xaml.cs">
       <DependentUpon>StopWatchControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="TaskData.cs" />
+    <Compile Include="TaskDataManager.cs" />
     <Page Include="AddLogWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

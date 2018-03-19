@@ -17,6 +17,7 @@ namespace StopWatch
         private Button ToggleWatchButton;
         private ListBox taskList;
         private bool toggleButton;
+        private Guid windowGUID;
 
         public StopWatchChildWindow()
         {
@@ -76,30 +77,23 @@ namespace StopWatch
             // add the Grid, which contains our controls
             this.AddChild(grid);
 
-            //< xctk:WindowContainer Name = "cntr1" >
+            windowGUID = Guid.NewGuid();
 
-            //< xctk:ChildWindow WindowBackground = "Blue"
-            //Left = "175"
-            //Top = "125"
-            //Width = "221"
-            //Height = "217"
-            //WindowState = "Open" Canvas.Left = "78" Canvas.Top = "42" >
+            //AddLogWindow alw = new AddLogWindow();
+            AddLogWindow.OpenAddLogWindow(GetGuid());
+            //alw.Show();
 
-            //< Grid >
+            
+        }
 
-            //< Label Name = "StopWatchTaskLabel" Content = "Working on Task X" FontSize = "18" 
-            //Margin = "0,0,-0.4,129.4" HorizontalAlignment = "Center" VerticalAlignment = "Center" />
+        public Guid GetGuid()
+        {
+            return windowGUID;
+        }
 
-            //< local:StopWatchControl HorizontalAlignment = "Left" Margin = "10,0,0,74.4" Width = "198" />
-
-            //< Button Name = "ToggleWatchButton" Content = "Start" HorizontalAlignment = "Left" Margin = "10,73,0,0" VerticalAlignment = "Top" Width = "198" Height = "32" />
-
-            //< ListBox Name = "listBox" HorizontalAlignment = "Left" Height = "66" Margin = "10,110,0,0" VerticalAlignment = "Top" Width = "198" MouseDoubleClick = "listBox_MouseDoubleClick" MouseLeftButtonUp = "listBox_MouseLeftButtonUp" />
-
-            //</ Grid >
-
-            //</ xctk:ChildWindow >
-            //</ xctk:WindowContainer >
+        public void AddTaskLogItem()
+        {
+            taskList.Items.Add("test");
         }
 
         private void ToggleWatchButton_Click(object sender, RoutedEventArgs e)
@@ -122,7 +116,7 @@ namespace StopWatch
         {
             if (taskList.SelectedItem.ToString().Contains("Add New Log Item"))
             {
-               
+                AddLogWindow.OpenAddLogWindow();
             }
         }
 

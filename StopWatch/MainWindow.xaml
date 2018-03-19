@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:StopWatch"
         mc:Ignorable="d"
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
-        Title="MainWindow" Height="505.592" Width="960.526">
+        Title="MainWindow" Height="505.592" Width="960.526" Closing="Window_Closing">
     <Grid>
         <xctk:WindowContainer Name="cntr1">
             <!--<xctk:ChildWindow WindowBackground="Blue"
