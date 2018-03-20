@@ -30,6 +30,10 @@ namespace StopWatch
 
 
             CreateNewStopWatchChildWindow();
+            CreateNewStopWatchChildWindow();
+            CreateNewStopWatchChildWindow();
+            CreateNewStopWatchChildWindow();
+            CreateNewStopWatchChildWindow();
 
             //this.IsEnabled = false;
 
@@ -48,6 +52,7 @@ namespace StopWatch
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             AddLogWindow.CloseAddLogWindow();
+            EditLogWindow.CloseEditLogWindow();
         }
 
         //private void listBox_MouseDoubleClick(object sender, MouseButtonEventArgs e)

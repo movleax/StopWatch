@@ -21,10 +21,9 @@ namespace StopWatch
     {
         static private EditLogWindow instance;
         static private TaskData taskData;
-        static private Guid taskDataGUID;
         static private StopWatchChildWindow StopWatchCallerObject;
 
-        public static void OpenAddLogWindow(Guid StopWatchChildWindowGUID)
+        public static void OpenEditLogWindow(Guid StopWatchChildWindowGUID, Guid taskDataGUID)
         {
             CheckInstance();
 
@@ -32,13 +31,14 @@ namespace StopWatch
                 return;
 
             StopWatchCallerObject = TaskDataManager.GetStopWatchChildWindow(StopWatchChildWindowGUID);
+            taskData = TaskDataManager.GetTaskWindowData(taskDataGUID);
 
-            //instance.DescriptionField.Text = "Description";
-            //instance.TopicField.Text = "Enter Topic";
+            instance.TopicField.Text = taskData.TopicProperty;
+            instance.DescriptionField.Text = taskData.DescriptionProperty;
             instance.Show();
         }
 
-        static public void CloseAddLogWindow()
+        static public void CloseEditLogWindow()
         {
             CheckInstance();
             instance.Close();
@@ -65,17 +65,37 @@ namespace StopWatch
                 MessageBox.Show("Cannot Edit Log Item with an Empty Topic", "Unable to Add Log Item...", MessageBoxButton.OK, MessageBoxImage.Exclamation);
                 return;
             }
-            taskData = new TaskData(TopicField.Text, DescriptionField.Text);
-            StopWatchCallerObject.AddTaskWindowData(taskData);
+            taskData.TopicProperty = TopicField.Text;
+            taskData.DescriptionProperty = DescriptionField.Text;
+            StopWatchCallerObject.ModifyTaskWindowDataItem(taskData);
+            TaskDataManager.ModifyTaskWindowDataItem(taskData);
 
             TopicField.Text = null;
             DescriptionField.Text = null;
+            taskData = null;
+            StopWatchCallerObject = null;
             this.Hide();
         }
 
         private void Cancel_Click(object sender, RoutedEventArgs e)
         {
             CheckInstance();
+            TopicField.Text = null;
+            DescriptionField.Text = null;
+            taskData = null;
+            StopWatchCallerObject = null;
+            this.Hide();
+        }
+
+        private void Delete_Click(object sender, RoutedEventArgs e)
+        {
+            CheckInstance();
+
+            StopWatchCallerObject.DeleteTaskWindowDataItem(taskData);
+            TaskDataManager.DeleteTaskWindowDataItem(taskData);
+
+            taskData = null;
+            StopWatchCallerObject = null;
             TopicField.Text = null;
             DescriptionField.Text = null;
             this.Hide();

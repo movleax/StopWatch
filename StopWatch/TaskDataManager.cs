@@ -29,11 +29,9 @@ namespace StopWatch
         //    return Key;
         //}
 
-        static public Guid AddTaskWindowData(TaskData taskData)
+        static public void AddTaskWindowData(TaskData taskData)
         {
-            Guid key = Guid.NewGuid();
-            taskWindowData.Add(key, taskData);
-            return key;
+            taskWindowData.Add(taskData.GuidProperty, taskData);
         }
 
         static public TaskData GetTaskWindowData(Guid Key)
@@ -41,11 +39,14 @@ namespace StopWatch
             return taskWindowData[Key];
         }
 
-        static public Guid ModifyTaskWindowDataItem(Guid Key, TaskData taskData)
+        static public void ModifyTaskWindowDataItem(TaskData taskData)
         {
-            taskWindowData.Remove(Key);
-            taskWindowData.Add(Key, taskData);
-            return Key;
+            taskWindowData[taskData.GuidProperty] = taskData;
+        }
+
+        static public void DeleteTaskWindowDataItem(TaskData taskData)
+        {
+            taskWindowData.Remove(taskData.GuidProperty);
         }
     }
 }

@@ -98,11 +98,27 @@ namespace StopWatch
             return taskListData[Key];
         }
 
-        public Guid ModifyTaskWindowDataItem(Guid Key, TaskData taskData)
+        public void ModifyTaskWindowDataItem(TaskData taskData)
         {
-            taskListData.Remove(Key);
-            taskListData.Add(Key, taskData);
-            return Key;
+            taskListData[taskData.GuidProperty] = taskData;
+            int index = taskList.Items.IndexOf(taskData);
+            taskList.Items[index] = taskData;
+
+            taskList.Items.Clear();
+            taskList.Items.Add(" -- Add New Log Item --");
+            
+            foreach(var data in taskListData)
+            {
+                taskList.Items.Add(data.Value);
+            }
+
+        }
+
+        public void DeleteTaskWindowDataItem(TaskData taskData)
+        {
+            taskListData.Remove(taskData.GuidProperty);
+            //int index = taskList.Items.IndexOf(taskData);
+            taskList.Items.Remove(taskData);
         }
 
         public Guid GetGuid()
@@ -133,16 +149,23 @@ namespace StopWatch
 
         private void taskList_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            if (taskList.SelectedItem != null && taskList.SelectedItem.ToString().Contains("Add New Log Item"))
+            if (taskList.SelectedItem == null)
+            {
+                return;
+            }
+            if(taskList.SelectedItem.ToString().Contains("Add New Log Item"))
             {
                 AddLogWindow.OpenAddLogWindow(this.GetGuid());
+            }
+            if(taskList.SelectedItem.GetType() == typeof(TaskData) && !taskList.SelectedItem.ToString().Contains("Add New Log Item"))
+            {
+                EditLogWindow.OpenEditLogWindow(this.GetGuid(), ((TaskData)taskList.SelectedItem).GuidProperty);
             }
         }
 
         private void taskList_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            object foo = taskList.SelectedItem;
-            var nop = 0;
+            
         }
     }
 }

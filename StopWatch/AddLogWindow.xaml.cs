@@ -21,7 +21,6 @@ namespace StopWatch
     {
         static private AddLogWindow instance;
         static private TaskData taskData;
-        static private Guid taskDataGUID;
         static private StopWatchChildWindow StopWatchCallerObject;
 
         public static void OpenAddLogWindow(Guid StopWatchChildWindowGUID)
@@ -66,8 +65,10 @@ namespace StopWatch
                 return;
             }
             taskData = new TaskData(TopicField.Text, DescriptionField.Text);
+            TaskDataManager.AddTaskWindowData(taskData);
             StopWatchCallerObject.AddTaskWindowData(taskData);
-
+            taskData = null;
+            StopWatchCallerObject = null;
             TopicField.Text = null;
             DescriptionField.Text = null;
             this.Hide();
@@ -78,6 +79,8 @@ namespace StopWatch
             CheckInstance();
             TopicField.Text = null;
             DescriptionField.Text = null;
+            taskData = null;
+            StopWatchCallerObject = null;
             this.Hide();
         }
 
