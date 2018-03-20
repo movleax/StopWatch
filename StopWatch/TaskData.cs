@@ -10,9 +10,11 @@ namespace StopWatch
     {
         string topic;
         string description;
+        Guid id;
 
         public TaskData(string Topic, string Description)
         {
+            id = Guid.NewGuid();
             TopicProperty = Topic;
             DescriptionProperty = Description;
         }
@@ -27,6 +29,16 @@ namespace StopWatch
         {
             set { description = value; }
             get { return description; }
+        }
+
+        public Guid GuidProperty
+        {
+            get { return id; }
+        }
+
+        public override string ToString()
+        {
+            return topic;
         }
     }
 }

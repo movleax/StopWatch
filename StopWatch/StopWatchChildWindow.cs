@@ -18,6 +18,7 @@ namespace StopWatch
         private ListBox taskList;
         private bool toggleButton;
         private Guid windowGUID;
+        private Dictionary<Guid, TaskData> taskListData = new Dictionary<Guid, TaskData>();
 
         public StopWatchChildWindow()
         {
@@ -80,18 +81,36 @@ namespace StopWatch
             windowGUID = Guid.NewGuid();
 
             //AddLogWindow alw = new AddLogWindow();
-            AddLogWindow.OpenAddLogWindow(GetGuid());
+            //AddLogWindow.OpenAddLogWindow(GetGuid());
             //alw.Show();
 
             
+        }
+
+        public void AddTaskWindowData(TaskData taskData)
+        {
+            taskListData.Add(taskData.GuidProperty, taskData);
+            taskList.Items.Add(taskData);
+        }
+
+        public TaskData GetTaskWindowData(Guid Key)
+        {
+            return taskListData[Key];
+        }
+
+        public Guid ModifyTaskWindowDataItem(Guid Key, TaskData taskData)
+        {
+            taskListData.Remove(Key);
+            taskListData.Add(Key, taskData);
+            return Key;
         }
 
         public Guid GetGuid()
         {
             return windowGUID;
         }
-
-        public void AddTaskLogItem()
+        
+        public void AddTaskLogItem(Guid taskGuid, string topic)
         {
             taskList.Items.Add("test");
         }
@@ -114,9 +133,9 @@ namespace StopWatch
 
         private void taskList_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            if (taskList.SelectedItem.ToString().Contains("Add New Log Item"))
+            if (taskList.SelectedItem != null && taskList.SelectedItem.ToString().Contains("Add New Log Item"))
             {
-                AddLogWindow.OpenAddLogWindow();
+                AddLogWindow.OpenAddLogWindow(this.GetGuid());
             }
         }
 

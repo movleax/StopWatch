@@ -29,13 +29,20 @@ namespace StopWatch
             //item.Attributes.Add("style", "font-weight:bold");
 
 
-            cntr1.Children.Add(new StopWatchChildWindow());
+            CreateNewStopWatchChildWindow();
 
             //this.IsEnabled = false;
 
 
             //listBox.Items.Add(" -- Add New Log Item --");
             //listBox.Items.Add("asdfasdfasdfasdfasdfasdfasdfasdfasdfasfasdf");
+        }
+
+        public void CreateNewStopWatchChildWindow()
+        {
+            StopWatchChildWindow stopWatchChildWindow = new StopWatchChildWindow();
+            TaskDataManager.AddStopWatchChildWindow(stopWatchChildWindow);
+            cntr1.Children.Add(stopWatchChildWindow);
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)

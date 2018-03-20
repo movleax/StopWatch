@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace StopWatch
 {
     /// <summary>
-    /// Interaction logic for AddLogWindow.xaml
+    /// Interaction logic for EditLogWindow.xaml
     /// </summary>
-    public partial class AddLogWindow : Window
+    public partial class EditLogWindow : Window
     {
-        static private AddLogWindow instance;
+        static private EditLogWindow instance;
         static private TaskData taskData;
         static private Guid taskDataGUID;
         static private StopWatchChildWindow StopWatchCallerObject;
@@ -46,12 +46,12 @@ namespace StopWatch
 
         static private void CheckInstance()
         {
-            if(instance == null)
-                instance = new AddLogWindow();
+            if (instance == null)
+                instance = new EditLogWindow();
             //return instance;
         }
 
-        private AddLogWindow()
+        private EditLogWindow()
         {
             InitializeComponent();
         }
@@ -60,9 +60,9 @@ namespace StopWatch
         {
             CheckInstance();
 
-            if(TopicField.Text == null || TopicField.Text == "")
+            if (TopicField.Text == null || TopicField.Text == "")
             {
-                MessageBox.Show("Cannot Add Log Item with an Empty Topic", "Unable to Add Log Item...", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                MessageBox.Show("Cannot Edit Log Item with an Empty Topic", "Unable to Add Log Item...", MessageBoxButton.OK, MessageBoxImage.Exclamation);
                 return;
             }
             taskData = new TaskData(TopicField.Text, DescriptionField.Text);
