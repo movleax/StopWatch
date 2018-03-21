@@ -33,7 +33,7 @@ namespace StopWatch
             StopWatchTaskLabel = new Label();
             StopWatchTaskLabel.Content = TaskName;
             StopWatchTaskLabel.FontSize = 18;
-            StopWatchTaskLabel.Margin = new System.Windows.Thickness(0, 0, -0.4, 129.4);
+            StopWatchTaskLabel.Margin = new System.Windows.Thickness(0, 10, -0.4, 129.4);
             StopWatchTaskLabel.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
             StopWatchTaskLabel.VerticalAlignment = System.Windows.VerticalAlignment.Center;
 

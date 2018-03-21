@@ -8,9 +8,7 @@
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         Title="MainWindow" Height="505.592" Width="960.526" Closing="Window_Closing">
     <Grid x:Name="Grid">
-
-
-        <DockPanel>
+        <DockPanel Name="DockPanel">
             <Menu DockPanel.Dock="Top">
                 <MenuItem Header="_File">
                     <MenuItem Header="_Close" Click="MenuItem_Close_Click"/>
@@ -20,11 +18,8 @@
                     <MenuItem Header="_View Task List"/>
                 </MenuItem>
             </Menu>
-            <StackPanel></StackPanel>
+            <!--<StackPanel></StackPanel>-->
         </DockPanel>
-
-
-
-
+        
     </Grid>
 </Window>

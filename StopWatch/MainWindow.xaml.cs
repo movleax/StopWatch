@@ -26,7 +26,7 @@ namespace StopWatch
         {
             InitializeComponent();
             winContainer = new Xceed.Wpf.Toolkit.Primitives.WindowContainer();
-            Grid.Children.Insert(0, winContainer);
+            DockPanel.Children.Insert(1, winContainer);
         }
 
         static public void AddNewStopWatchChildWindow(Guid TaskWindowKey)
