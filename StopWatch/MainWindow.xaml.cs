@@ -20,39 +20,36 @@ namespace StopWatch
     /// </summary>
     public partial class MainWindow : Window
     {
+        static Xceed.Wpf.Toolkit.Primitives.WindowContainer winContainer;
+
         public MainWindow()
         {
             InitializeComponent();
-
-            //ListItem item = new ListItem();
-            //item.TextInput = "A bold item";
-            //item.Attributes.Add("style", "font-weight:bold");
-
-
-            CreateNewStopWatchChildWindow();
-            CreateNewStopWatchChildWindow();
-            CreateNewStopWatchChildWindow();
-            CreateNewStopWatchChildWindow();
-            CreateNewStopWatchChildWindow();
-
-            //this.IsEnabled = false;
-
-
-            //listBox.Items.Add(" -- Add New Log Item --");
-            //listBox.Items.Add("asdfasdfasdfasdfasdfasdfasdfasdfasdfasfasdf");
+            winContainer = new Xceed.Wpf.Toolkit.Primitives.WindowContainer();
+            Grid.Children.Insert(0, winContainer);
         }
 
-        public void CreateNewStopWatchChildWindow()
+        static public void AddNewStopWatchChildWindow(Guid TaskWindowKey)
         {
-            StopWatchChildWindow stopWatchChildWindow = new StopWatchChildWindow();
-            TaskDataManager.AddStopWatchChildWindow(stopWatchChildWindow);
-            cntr1.Children.Add(stopWatchChildWindow);
+            if(winContainer != null)
+                winContainer.Children.Add(TaskDataManager.GetStopWatchChildWindow(TaskWindowKey));
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             AddLogWindow.CloseAddLogWindow();
             EditLogWindow.CloseEditLogWindow();
+            AddStopWatchChildWindow.CloseAddStopWatchChildWindow();
+        }
+
+        private void MenuItem_CreateTask_Click(object sender, RoutedEventArgs e)
+        {
+            AddStopWatchChildWindow.OpenAddStopWatchChildWindow();
+        }
+
+        private void MenuItem_Close_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
 
         //private void listBox_MouseDoubleClick(object sender, MouseButtonEventArgs e)

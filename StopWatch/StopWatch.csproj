@@ -75,6 +75,9 @@
     <Compile Include="AddLogWindow.xaml.cs">
       <DependentUpon>AddLogWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AddStopWatchChildWindow.xaml.cs">
+      <DependentUpon>AddStopWatchChildWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="EditLogWindow.xaml.cs">
       <DependentUpon>EditLogWindow.xaml</DependentUpon>
     </Compile>
@@ -85,6 +88,10 @@
     <Compile Include="TaskData.cs" />
     <Compile Include="TaskDataManager.cs" />
     <Page Include="AddLogWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AddStopWatchChildWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -7,26 +7,21 @@
         mc:Ignorable="d"
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         Title="MainWindow" Height="505.592" Width="960.526" Closing="Window_Closing">
-    <Grid>
-        <xctk:WindowContainer Name="cntr1">
-            <!--<xctk:ChildWindow WindowBackground="Blue"
-                    Left="175"
-                    Top="125"
-                    Width="221"
-                    Height="217"
-                    WindowState="Open" Canvas.Left="78" Canvas.Top="42">
-                <Grid>
-                    <Label Name="StopWatchTaskLabel" Content="Working on Task X" FontSize="18" Margin="0,0,-0.4,129.4" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    <local:StopWatchControl HorizontalAlignment="Left" Margin="10,0,0,74.4" Width="198"/>
-                    <Button Name="ToggleWatchButton" Content="Start" HorizontalAlignment="Left" Margin="10,73,0,0" VerticalAlignment="Top" Width="198" Height="32"/>
-                    <ListBox Name="listBox" HorizontalAlignment="Left" Height="66" Margin="10,110,0,0" VerticalAlignment="Top" Width="198" MouseDoubleClick="listBox_MouseDoubleClick" MouseLeftButtonUp="listBox_MouseLeftButtonUp"/>
-                </Grid>
-            </xctk:ChildWindow>-->
+    <Grid x:Name="Grid">
 
 
-        </xctk:WindowContainer>
-
-
+        <DockPanel>
+            <Menu DockPanel.Dock="Top">
+                <MenuItem Header="_File">
+                    <MenuItem Header="_Close" Click="MenuItem_Close_Click"/>
+                </MenuItem>
+                <MenuItem Header="_Task">
+                    <MenuItem Header="_Create Task" Click="MenuItem_CreateTask_Click"/>
+                    <MenuItem Header="_View Task List"/>
+                </MenuItem>
+            </Menu>
+            <StackPanel></StackPanel>
+        </DockPanel>
 
 
 

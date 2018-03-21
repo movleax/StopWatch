@@ -20,7 +20,7 @@ namespace StopWatch
         private Guid windowGUID;
         private Dictionary<Guid, TaskData> taskListData = new Dictionary<Guid, TaskData>();
 
-        public StopWatchChildWindow()
+        public StopWatchChildWindow(string TaskName)
         {
             // define childwindow properties
             this.Left = 0;
@@ -31,7 +31,7 @@ namespace StopWatch
 
             // Stop Watch task Label
             StopWatchTaskLabel = new Label();
-            StopWatchTaskLabel.Content = "Working on Task X";
+            StopWatchTaskLabel.Content = TaskName;
             StopWatchTaskLabel.FontSize = 18;
             StopWatchTaskLabel.Margin = new System.Windows.Thickness(0, 0, -0.4, 129.4);
             StopWatchTaskLabel.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
